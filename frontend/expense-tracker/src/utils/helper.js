@@ -1,4 +1,4 @@
-export default validateEmail=(email)=>{
-    const regex=/^[^s@]+@[^\s@]+\.[^\s@]+$/;
+export const validateEmail=(email)=>{
+    const regex=/^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return regex.test(email);
-}
+};

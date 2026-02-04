@@ -1,59 +1,59 @@
-// import Login from "./pages/Auth/Login";
-// import SignUp from "./pages/Auth/SignUp";
-// import Home from "./pages/Dashboard/Home";
-// import Income from "./pages/Dashboard/Income";
-// import Expense from "./pages/Dashboard/Expense";
-
-// import {
-//   BrowserRouter as Router,
-//   Routes,
-//   Route,
-//   Navigate,
-// } from "react-router-dom";
-
-// const App = () => {
-//   return (
-//     <Router>
-//       <Routes>
-//         <Route path="/" element={<Root />} />
-
-//         <Route path="/login" element={<Login />} />
-//         <Route path="/signup" element={<SignUp />} />
-
-//         <Route path="/dashboard" element={<Home />} />
-//         <Route path="/income" element={<Income />} />
-//         <Route path="/expense" element={<Expense />} />
-//       </Routes>
-//     </Router>
-//   );
-// };
-
-// export default App;
-
-// // SAME ROOT LOGIC AS YOURS
-// const Root = () => {
-//   const isAuthenticated = Boolean(localStorage.getItem("token"));
-
-//   return isAuthenticated ? (
-//     <Navigate to="/dashboard" replace />
-//   ) : (
-//     <Navigate to="/login" replace />
-//   );
-// };
 import Login from "./pages/Auth/Login";
 import SignUp from "./pages/Auth/SignUp";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Home from "./pages/Dashboard/Home";
+import Income from "./pages/Dashboard/Income";
+import Expense from "./pages/Dashboard/Expense";
+
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+} from "react-router-dom";
 
 const App = () => {
   return (
-    <BrowserRouter>
+    <Router>
       <Routes>
-        <Route path="/" element={<Login />} />
+        <Route path="/" element={<Root />} />
+
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<SignUp />} />
+
+        <Route path="/dashboard" element={<Home />} />
+        <Route path="/income" element={<Income />} />
+        <Route path="/expense" element={<Expense />} />
       </Routes>
-    </BrowserRouter>
+    </Router>
   );
 };
 
 export default App;
+
+// SAME ROOT LOGIC AS YOURS
+const Root = () => {
+  const isAuthenticated = Boolean(localStorage.getItem("token"));
+
+  return isAuthenticated ? (
+    <Navigate to="/dashboard" replace />
+  ) : (
+    <Navigate to="/login" replace />
+  );
+};
+// import Login from "./pages/Auth/Login";
+// import SignUp from "./pages/Auth/SignUp";
+// import { BrowserRouter, Routes, Route } from "react-router-dom";
+
+// const App = () => {
+//   return (
+//     <BrowserRouter>
+//       <Routes>
+//         <Route path="/" element={<Login />} />
+//         <Route path="/login" element={<Login />} />
+//         <Route path="/signup" element={<SignUp />} />
+//       </Routes>
+//     </BrowserRouter>
+//   );
+// };
+
+// export default App;

@@ -2,16 +2,19 @@ import React, {  useState } from "react";
 import AuthLayout from "../../components/layouts/AuthLayout";
 import {Link, useNavigate} from 'react-router-dom';
 import Input from "../../components/Inputs/Input";
+import { validateEmail } from "../../utils/helper";
+
 const Login = () => {
 
   const [email,setEmail]=useState("");
-  const [password,seetPassword]=useState("");
+  const [password,setPassword]=useState("");
   const [error,setError]=useState(null);
 
   const navigate=useNavigate();
 
   const handleLogin=async(e)=>{
     e.preventDefault();
+
     if(!validateEmail(email)){
       setError("please enter a valid email address");
     return;
@@ -30,6 +33,7 @@ const Login = () => {
         <p className="text-xs text-slate-700 mt-[5px] mb-6">
           Please enter your details to login
         </p>
+        
         <form onSubmit={handleLogin}>
           <Input 
           value={email}
@@ -40,7 +44,7 @@ const Login = () => {
           />
           <Input 
           value={password}
-          onChange={({target})=>seetPassword(target.value)}
+          onChange={({target})=>setPassword(target.value)}
           label="password"
           placeholder="Min 8 Characters"
           type="password"
