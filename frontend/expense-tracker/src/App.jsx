@@ -1,45 +1,45 @@
-import Login from "./pages/Auth/Login";
-import SignUp from "./pages/Auth/SignUp";
-import Home from "./pages/Dashboard/Home";
-import Income from "./pages/Dashboard/Income";
-import Expense from "./pages/Dashboard/Expense";
+// import Login from "./pages/Auth/Login";
+// import SignUp from "./pages/Auth/SignUp";
+// import Home from "./pages/Dashboard/Home";
+// import Income from "./pages/Dashboard/Income";
+// import Expense from "./pages/Dashboard/Expense";
 
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-  Navigate,
-} from "react-router-dom";
+// import {
+//   BrowserRouter as Router,
+//   Routes,
+//   Route,
+//   Navigate,
+// } from "react-router-dom";
 
-const App = () => {
-  return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<Root />} />
+// const App = () => {
+//   return (
+//     <Router>
+//       <Routes>
+//         <Route path="/" element={<Root />} />
 
-        <Route path="/login" element={<Login />} />
-        <Route path="/signup" element={<SignUp />} />
+//         <Route path="/login" element={<Login />} />
+//         <Route path="/signup" element={<SignUp />} />
 
-        <Route path="/dashboard" element={<Home />} />
-        <Route path="/income" element={<Income />} />
-        <Route path="/expense" element={<Expense />} />
-      </Routes>
-    </Router>
-  );
-};
+//         <Route path="/dashboard" element={<Home />} />
+//         <Route path="/income" element={<Income />} />
+//         <Route path="/expense" element={<Expense />} />
+//       </Routes>
+//     </Router>
+//   );
+// };
 
-export default App;
+// export default App;
 
-// SAME ROOT LOGIC AS YOURS
-const Root = () => {
-  const isAuthenticated = Boolean(localStorage.getItem("token"));
+// // SAME ROOT LOGIC AS YOURS
+// const Root = () => {
+//   const isAuthenticated = Boolean(localStorage.getItem("token"));
 
-  return isAuthenticated ? (
-    <Navigate to="/dashboard" replace />
-  ) : (
-    <Navigate to="/login" replace />
-  );
-};
+//   return isAuthenticated ? (
+//     <Navigate to="/dashboard" replace />
+//   ) : (
+//     <Navigate to="/login" replace />
+//   );
+// };
 // import Login from "./pages/Auth/Login";
 // import SignUp from "./pages/Auth/SignUp";
 // import { BrowserRouter, Routes, Route } from "react-router-dom";
@@ -57,3 +57,53 @@ const Root = () => {
 // };
 
 // export default App;
+
+// import Login from "./pages/Auth/Login";
+// import SignUp from "./pages/Auth/SignUp";
+// import Home from "./pages/Dashboard/Home";
+// import Income from "./pages/Dashboard/Income";
+// import Expense from "./pages/Dashboard/Expense";
+
+// import { Routes, Route, Navigate } from "react-router-dom";
+
+// const Root = () => {
+//   const isAuthenticated = Boolean(localStorage.getItem("token"));
+
+//   return isAuthenticated ? (
+//     <Navigate to="/dashboard" replace />
+//   ) : (
+//     <Navigate to="/login" replace />
+//   );
+// };
+
+// const App = () => {
+//   return (
+//     <Routes>
+//       <Route path="/" element={<Root />} />
+
+//       <Route path="/login" element={<Login />} />
+//       <Route path="/signup" element={<SignUp />} />
+
+//       <Route path="/dashboard" element={<Home />} />
+//       <Route path="/income" element={<Income />} />
+//       <Route path="/expense" element={<Expense />} />
+
+//       <Route path="*" element={<Navigate to="/" />} />
+//     </Routes>
+//   );
+// };
+
+// export default App;
+import { Routes, Route } from "react-router-dom";
+
+const App = () => {
+  return (
+    <Routes>
+      <Route path="/" element={<h1>HOME PAGE</h1>} />
+      <Route path="/login" element={<h1>LOGIN PAGE</h1>} />
+      <Route path="/signup" element={<h1>SIGNUP PAGE</h1>} />
+    </Routes>
+  );
+};
+
+export default App;
