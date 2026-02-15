@@ -8,7 +8,6 @@ import {
   Navigate,
 } from "react-router-dom";
 
-import AuthLayout from "./components/layouts/AuthLayout";
 import Login from "./pages/Auth/Login";
 import SignUp from "./pages/Auth/SignUp";
 import Home from "./pages/Dashboard/Home";
@@ -26,33 +25,22 @@ const Root = () => {
 };
 
 const App = () => {
+  const isAuthenticated = !!localStorage.getItem("token");
+
   return (
     <Router>
       <Routes>
         <Route path="/" element={<Root />} />
 
-        <Route
-          path="/login"
-          element={
-            <AuthLayout>
-              <Login />
-            </AuthLayout>
-          }
-        />
+        {/* Auth Routes */}
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<SignUp />} />
 
-        <Route
-          path="/signup"
-          element={
-            <AuthLayout>
-              <SignUp />
-            </AuthLayout>
-          }
-        />
-
+        {/* Protected Routes */}
         <Route
           path="/dashboard"
           element={
-            localStorage.getItem("token") ? (
+            isAuthenticated ? (
               <Home />
             ) : (
               <Navigate to="/login" replace />
@@ -63,7 +51,7 @@ const App = () => {
         <Route
           path="/income"
           element={
-            localStorage.getItem("token") ? (
+            isAuthenticated ? (
               <Income />
             ) : (
               <Navigate to="/login" replace />
@@ -74,7 +62,7 @@ const App = () => {
         <Route
           path="/expense"
           element={
-            localStorage.getItem("token") ? (
+            isAuthenticated ? (
               <Expense />
             ) : (
               <Navigate to="/login" replace />
