@@ -4,18 +4,29 @@ import { LuTrendingUpDown } from "react-icons/lu";
 
 const AuthLayout = ({ children }) => {
   return (
-    <div className="flex">
-      <div className="w-screen h-screen md:w-[60vw] px-12 pt-8 pb-12">
-        <h2 className="text-lg font-medium text-black">Expense Tracker</h2>
+    <div className="flex min-h-screen overflow-hidden">
+      
+      {/* LEFT SECTION */}
+      <div className="w-screen md:w-[60vw] px-12 pt-8 pb-12 relative z-10 bg-white">
+        <h2 className="text-lg font-medium text-black">
+          Expense Tracker
+        </h2>
+
         {children}
       </div>
 
-      <div className="hidden md:block w-[40vw] h-screen bg-violet-50 bg-auth-bg-img bg-cover bg-no-repeat bg-center overflow-hidden p-8 relative">
-        <div className="w-48 h-48 rounded-[40px] bg-purple-600 absolute -top-7 -left-7" />
-        <div className="w-48 h-56 rounded-[40px] border-[20px] border-fuchsia-600 absolute top-[30%] -right-10" />
-        <div className="w-48 h-48 rounded-[40px] bg-violet-500 absolute -bottom-7 -left-7" />
+      {/* RIGHT SECTION */}
+      <div className="hidden md:block w-[40vw] relative bg-violet-50 bg-auth-bg-img bg-cover bg-no-repeat bg-center p-8 overflow-hidden">
+        
+        {/* Decorative Shapes */}
+        <div className="w-48 h-48 rounded-[40px] bg-purple-600 absolute -top-7 -left-7 pointer-events-none" />
+        
+        <div className="w-48 h-56 rounded-[40px] border-[20px] border-fuchsia-600 absolute top-[30%] -right-10 pointer-events-none" />
+        
+        <div className="w-48 h-48 rounded-[40px] bg-violet-500 absolute -bottom-7 -left-7 pointer-events-none" />
 
-        <div className="grid grid-cols-1 z-20 relative">
+        {/* Stats Card */}
+        <div className="relative z-20">
           <StatsInfoCard
             icon={<LuTrendingUpDown />}
             label="Track Your Income & Expenses"
@@ -24,10 +35,11 @@ const AuthLayout = ({ children }) => {
           />
         </div>
 
+        {/* Bottom Image */}
         <img
           src={CARD_2}
           alt="card"
-          className="w-64 lg:w-[90%] absolute bottom-10 shadow-lg shadow-blue-400/15"
+          className="w-64 lg:w-[90%] absolute bottom-10 shadow-lg shadow-blue-400/15 pointer-events-none"
         />
       </div>
     </div>
@@ -38,7 +50,8 @@ export default AuthLayout;
 
 const StatsInfoCard = ({ icon, label, value, color }) => {
   return (
-    <div className="flex gap-6 bg-white p-4 rounded-xl shadow-md shadow-purple-200/50">
+    <div className="flex gap-6 bg-white p-4 rounded-xl shadow-md shadow-purple-200/50 max-w-sm">
+      
       <div
         className={`w-12 h-12 flex items-center justify-center text-[26px] text-white ${color} rounded-lg`}
       >
@@ -46,9 +59,14 @@ const StatsInfoCard = ({ icon, label, value, color }) => {
       </div>
 
       <div>
-        <h6 className="text-xs text-gray-500 mb-1">{label}</h6>
-        <span className="text-[20px] font-semibold">{value}</span>
+        <h6 className="text-xs text-gray-500 mb-1">
+          {label}
+        </h6>
+        <span className="text-[20px] font-semibold">
+          {value}
+        </span>
       </div>
+
     </div>
   );
 };
