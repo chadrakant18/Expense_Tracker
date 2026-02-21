@@ -41,6 +41,7 @@ const Login = () => {
         updateUser(user);
         navigate("/dashboard");
       }
+      console.log("Login response:", response.data);
     }
     catch(error){
       if(error.response&&error.response.data.message){
