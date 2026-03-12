@@ -13,7 +13,7 @@ import FinanceOverview from "../../components/Dashboard/FinanceOverview";
 import ExpenseTransactions from "../../components/Dashboard/ExpenseTransactions";
 import Last30DaysExpenses from "../../components/Dashboard/last30DaysExpenses";
 import RecentIncomeWithChart from "../../components/Dashboard/RecentIncomeWithChart";
-import RecentIncome from "./RecentIncome";
+import RecentIncome from "../../components/Dashboard/RecentIncome";
 const Home = () => {
   useUserAuth();
 

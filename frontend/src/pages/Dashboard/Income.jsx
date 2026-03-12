@@ -1,13 +1,26 @@
-import React from "react";
+import React, { useState } from "react";
+import DashboardLayout from "../../components/layouts/DashboardLayout";
+import IncomeOverview from "../../components/Income/IncomeOverview";
 
 const Income = () => {
+
+  const [openAddIncomeModal, setOpenAddIncomeModal] = useState(false);
+
   return (
-    <div className="p-6">
-      <h1 className="text-2xl font-bold">Income Page</h1>
-      <p className="mt-2 text-gray-600">
-        Manage your income here.
-      </p>
-    </div>
+    <DashboardLayout activeMenu="Income">
+      <div className="my-5 max-auto">
+        <div className="grid grid-cols-1 gap-6">
+
+          <div className="">
+            <IncomeOverview
+              transactions={incomeData}
+              onAddIncome={() => setOpenAddIncomeModal(true)}
+            />
+          </div>
+
+        </div>
+      </div>
+    </DashboardLayout>
   );
 };
 
