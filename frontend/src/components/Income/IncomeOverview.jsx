@@ -12,9 +12,22 @@ const IncomeOverview = ({ transactions, onAddIncome }) => {
         return () => {};
     }, [transactions]);
 
-    return (
-        <div></div>
-    )
+    return <div className="card">
+        <div className="">
+            <div className="">
+                <h5 className="">Income Overview</h5>
+                <p className="">
+                    Track your earnings over time and analyze your income trends.
+
+                </p>
+            </div>
+            <button className="" onClick={onAddIncome}>
+                <LuPlus className=''/>
+                Add Income
+            </button>
+        </div>
+        <div className=''></div>
+        </div>
 }
 
 export default IncomeOverview;
