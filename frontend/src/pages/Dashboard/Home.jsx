@@ -88,7 +88,7 @@ const Home = () => {
           onSeeMore={()=>navigate("/expense")}
           />
 
-          <last30DaysExpenses
+          <Last30DaysExpenses
           data={dashboardData?.last30DaysExpenses?.transactions||[]}
           />
           <RecentIncomeWithChart
@@ -97,7 +97,7 @@ const Home = () => {
           />
 
           <RecentIncome
-          transactions={dashboardData?.Last60DaysIncome.transactions||[]}
+          transactions={dashboardData?.Last60DaysIncome?.transactions || []}
           onSeeMore={()=>navigate("/income")}
           />
         </div>
