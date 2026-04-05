@@ -5,7 +5,7 @@ const AddIncomeForm = ({ onAddIncome }) => {
     const [income, setIncome] = useState({
         source: "",
         amount: "",
-        data: "",
+        date: "",
         icon: ""
     });
     const handleChange = (key, value) => setIncome({ ...income, [key]: value });
