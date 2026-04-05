@@ -9,10 +9,10 @@ const Modal = ({ children, isOpen, onClose, title }) => {
       {/* Modal content */}
       <div className="relative p-4 w-full max-w-2xl max-h-full">
         
-        <div className="bg-white rounded-lg shadow-sm dark:bg-gray-700">
+        <div className="bg-white rounded-lg shadow-sm" >
           
           {/* Header */}
-          <div className="flex items-center justify-between p-4 md:p-5 border-b rounded-t border-gray-200 dark:border-gray-600">
+          <div className="flex items-center justify-between p-4 md:p-5 border-b rounded-t border-gray-200">
             
             <h3 className="text-lg font-medium text-gray-900 dark:text-white">
               {title}
@@ -50,5 +50,4 @@ const Modal = ({ children, isOpen, onClose, title }) => {
     </div>
   );
 };
-
 export default Modal;
