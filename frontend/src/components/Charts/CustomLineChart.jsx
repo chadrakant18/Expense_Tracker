@@ -17,7 +17,7 @@ const CustomLineChart=({data})=>{
         }
         return null;
     }
-    return <div className="">
+    return <div className="bg-white">
         <ResponsiveContainer width="100%" height={300}>
             <AreaChart data={data}>
             <defs>
@@ -29,9 +29,10 @@ const CustomLineChart=({data})=>{
                     <CartesianGrid stroke="none"/>
                     <XAxis dataKey="month" tick={{fontSize:12,fill:"#555"}} stroke="none"/>;
                     <YAxis tick={{fontSize:12,fill:"#555"}} stroke="none"/>
+                    <Tooltip content={<CustomTolltip/>}/>
+                    <Area type="monotone" dataKey="amount" stroke="#875cf5" fill="url(#incomeGradient)" strokeWidth={3} dot={{r:3,fill:"#abBdf8"}}/>;
                     </AreaChart>
         </ResponsiveContainer>
-    </div>
-    )
-}
+    </div>;
+};
 export default CustomLineChart;
