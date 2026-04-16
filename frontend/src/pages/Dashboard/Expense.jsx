@@ -3,6 +3,8 @@ import { useUserAuth } from "../../hooks/useUserAuth";
 import DashboardLayout from "../../components/layouts/DashboardLayout";
 import toast from "react-hot-toast";
 import ExpenseOverview from "../../components/Expense/ExpenseOverview";
+import AddExpenseForm from "../../components/Expense/AddExpenseForm";
+import Modal from "../../components/Modal";
 const Expense = () => {
   useUserAuth();
   const [expenseData,setExpenseData]=useState([]);
@@ -82,10 +84,17 @@ const Expense = () => {
           <div className="">
             <ExpenseOverview
             transactions={expenseData}
-            onExpenseIncome={()=>setOpenAddExpenseModal(true)}
+            onExpenseOverview={()=>setOpenAddExpenseModal(true)}
             />
           </div>
         </div>
+        <Modal
+        isOpen={openAddExpenseModal}
+        onClose={()=>setOpenAddExpenseModal(false)}
+        title="Add Expense"
+        >
+          <AddExpenseForm openAddExpense={handleAddExpense}/>
+        </Modal>
       </div>
     
     </DashboardLayout>
