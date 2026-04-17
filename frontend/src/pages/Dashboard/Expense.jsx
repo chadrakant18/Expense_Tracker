@@ -90,7 +90,36 @@ const deleteExpense=async(id)=>{
     }
   };
 
-  const handleDownloadExpenseDetails=async()=>{};
+  const handleDownloadExpenseDetails = async () => {
+  try {
+    const response = await axiosInstance.get(
+      API_PATHS.EXPENSE.DOWNLOAD_EXPENSE,
+      {
+        responseType: "blob",
+      }
+    );
+
+    // ✅ FIX: explicitly create blob
+    const blob = new Blob([response.data], {
+      type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+    });
+
+    const url = window.URL.createObjectURL(blob);
+
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = "expense_details.xlsx";
+
+    document.body.appendChild(link);
+    link.click();
+
+    document.body.removeChild(link);
+    window.URL.revokeObjectURL(url);
+
+  } catch (error) {
+    console.error("Download error:", error);
+  }
+};
 
   useEffect(()=>{
     fetchExpenseDetails();

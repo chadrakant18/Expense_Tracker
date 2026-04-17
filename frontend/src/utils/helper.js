@@ -31,12 +31,25 @@ export const addThousandsSeparator = (num) => {
     ? `${formattedInteger}.${fractionalPart}`
     : formattedInteger;
 };
-export const prepareExpenseBarChartData=(data=[])=>{
-  const charData=data.map((item)=>({
-    category:item?.category,
-    amount:item?.amount,
+export const prepareExpenseBarChartData = (data) => {
+  if (!data || data.length === 0) return [];
+
+  const grouped = {};
+
+  data.forEach((item) => {
+    const key = item.category; // or use date if needed
+
+    if (!grouped[key]) {
+      grouped[key] = 0;
+    }
+
+    grouped[key] += Number(item.amount);
+  });
+
+  return Object.keys(grouped).map((key) => ({
+    month: key,
+    amount: grouped[key],
   }));
-  return charData;
 };
 export const prepareIncomeBarChartData = (data = []) => {
     const sortedData = [...data].sort(
