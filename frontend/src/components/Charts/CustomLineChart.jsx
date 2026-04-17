@@ -27,7 +27,7 @@ const CustomLineChart=({data})=>{
                     </linearGradient>
                     </defs>
                     <CartesianGrid stroke="none"/>
-                    <XAxis dataKey="month" tick={{fontSize:12,fill:"#555"}} stroke="none"/>;
+                    <XAxis dataKey="category" tick={{fontSize:12,fill:"#555"}} stroke="none"/>;
                     <YAxis tick={{fontSize:12,fill:"#555"}} stroke="none"/>
                     <Tooltip content={<CustomTolltip/>}/>
                     <Area type="monotone" dataKey="amount" stroke="#875cf5" fill="url(#incomeGradient)" strokeWidth={3} dot={{r:3,fill:"#abBdf8"}}/>;
